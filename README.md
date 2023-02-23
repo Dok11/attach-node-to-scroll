@@ -17,7 +17,7 @@ npm install attach-node-to-scroll
 Here's an example of how to use AttachNodeToScroll:
 
 ```ts
-import { AttachNodeToScroll } from 'my-package';
+import { AttachNodeToScroll } from 'attach-node-to-scroll';
 import { SceneLoader } from '@babylonjs/core';
 
 // Import our scene with animated camera

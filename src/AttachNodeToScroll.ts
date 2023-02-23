@@ -1,12 +1,30 @@
-import { AnimationGroup } from '@babylonjs/core';
+import { AnimationGroup } from '@babylonjs/core/Animations/animationGroup';
 import { Behavior } from '@babylonjs/core/Behaviors/behavior';
 import { Node } from '@babylonjs/core/node';
 import { Nullable } from '@babylonjs/core/types';
 
 
 export interface AttachNodeToScrollOptions {
+  /**
+   * The direction of the scroll - vertical or horizontal.
+   * @default 'vertical'
+   * @optional
+   */
   readonly scrollDirection?: 'vertical' | 'horizontal';
+
+  /**
+   * The element to listen to scroll events on.
+   * @default document
+   * @optional
+   */
   readonly scrollElement?: HTMLElement | Document;
+
+  /**
+   * A function to call before updating the target position.
+   * Here you can modify the progress value before it is used to update the target position.
+   * @default (progress) => progress
+   * @optional
+   */
   readonly onBeforeUpdate?: (progress: number) => number;
 }
 
@@ -25,6 +43,7 @@ export class AttachNodeToScroll implements Behavior<Node> {
   private currentProgress?: number;
 
   constructor(options: AttachNodeToScrollOptions = defaultAttachNodeToScrollOptions) {
+    // Set the options while instance is being created
     this.scrollDirection = options.scrollDirection || defaultAttachNodeToScrollOptions.scrollDirection!;
     this.scrollElement = options.scrollElement || defaultAttachNodeToScrollOptions.scrollElement!;
     this.onBeforeUpdate = options.onBeforeUpdate || ((progress) => progress);
@@ -47,11 +66,11 @@ export class AttachNodeToScroll implements Behavior<Node> {
   }
 
   public detach(): void {
-    if (this.target) {
-      this.scrollElement.removeEventListener('scroll', () => this.updateTargetPosition());
-      this.target.getScene().onBeforeCameraRenderObservable.removeCallback(() => this.updateTargetPosition());
-      this.target = null;
-    }
+    if (!this.target) { return; }
+
+    this.scrollElement.removeEventListener('scroll', () => this.updateTargetPosition());
+    this.target.getScene().onBeforeCameraRenderObservable.removeCallback(() => this.updateTargetPosition());
+    this.target = null;
   }
 
   private updateTargetPosition(): void {
