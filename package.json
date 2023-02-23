@@ -1,0 +1,30 @@
+{
+  "name": "attach-node-to-scroll",
+  "version": "1.0.0",
+  "description": "Behavior class attaches scroll event to animation progress",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dok11/attach-node-to-scroll.git"
+  },
+  "keywords": [
+    "babylonjs",
+    "behavior",
+    "scroll",
+    "animation"
+  ],
+  "author": "Oleg Postoev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dok11/attach-node-to-scroll/issues"
+  },
+  "homepage": "https://github.com/Dok11/attach-node-to-scroll#readme",
+  "dependencies": {
+    "@babylonjs/core": "^5.48.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "typescript": "^4.9.5"
+  }
+}
