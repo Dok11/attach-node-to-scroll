@@ -63,3 +63,9 @@ animatableNode.addBehavior(attachNodeToScroll);
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, please follow the standard Gitflow workflow and submit a pull request.
+
+## Relative resources
+
+- [Babylon.js](https://www.babylonjs.com/)
+- [Behaviors](https://doc.babylonjs.com/features/featuresDeepDive/behaviors)
+- [Interesting examples of BabylonJS usage](https://yuka.babylonpress.org/examples/)
