@@ -1,6 +1,6 @@
 {
   "name": "attach-node-to-scroll",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Behavior class attaches scroll event to animation progress",
   "keywords": [
     "babylonjs",
