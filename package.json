@@ -1,6 +1,6 @@
 {
   "name": "attach-node-to-scroll",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Behavior class attaches scroll event to animation progress",
   "keywords": [
     "babylonjs",
@@ -40,6 +40,7 @@
     "build:cjs": "babel src --out-dir dist/cjs --extensions .ts --source-maps",
     "build:esm": "babel src --out-dir dist/esm --extensions .ts --source-maps --env-name esm",
     "build:tsc": "npx tsc",
-    "build": "npm run build:cjs && npm run build:esm && npm run build:tsc"
+    "build": "npm run build:cjs && npm run build:esm && npm run build:tsc",
+    "prepare": "npm run build && cp -R dist/* ."
   }
 }
